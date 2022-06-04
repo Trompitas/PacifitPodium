@@ -43,11 +43,11 @@ router.delete("/podium/:id", (req, res) => {
 // update a user
 router.put("/podium/:id", (req, res) => {
   const { id } = req.params;
-  const { nombreCompleto, cantidadRepeticiones } = req.body;
+  const { nombreCompleto, cantidadRepeticiones, masculinofemenino} = req.body;
   usuarioSchema
     .updateOne(
       { _id: id },
-      { $set: { nombreCompleto, cantidadRepeticiones } }
+      { $set: { nombreCompleto, cantidadRepeticiones, masculinofemenino } }
     )
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
