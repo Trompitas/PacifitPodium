@@ -23,10 +23,10 @@ router.get("/podium", (req, res) => {
 
 // search user by name
 router.get("/podium/:name", (req, res) => {
-  const { name } = req.params;
+  const { nombreCompleto } = req.params;
   const search = new RegExp(name, "i");
   usuarioSchema
-    .find({$or: [{name: search}],}).lean()
+    .find({$or: [{nombreCompleto: search}],}).lean()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
@@ -47,7 +47,7 @@ router.put("/podium/:id", (req, res) => {
   usuarioSchema
     .updateOne(
       { _id: id },
-      { $set: { nombreCompleto, primerApellido, cantidadRepeticiones, estadoSolicitud } }
+      { $set: { nombreCompleto, cantidadRepeticiones } }
     )
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
