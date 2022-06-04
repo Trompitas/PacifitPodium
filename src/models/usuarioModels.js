@@ -13,6 +13,10 @@ const usuarioSchema = Schema({
     type: String,
     required: true,
   },
+  nombreUsuario: {
+    type: String,
+    required: true,
+  }
 },
   {
     timestamps: true,
