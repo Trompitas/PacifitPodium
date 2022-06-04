@@ -43,7 +43,7 @@ router.delete("/podium/:id", (req, res) => {
 // update a user
 router.put("/podium/:id", (req, res) => {
   const { id } = req.params;
-  const { nombreUsuario, nombreCompleto, primerApellido, contrasena } = req.body;
+  const { nombreCompleto, cantidadRepeticiones } = req.body;
   usuarioSchema
     .updateOne(
       { _id: id },
