@@ -31,6 +31,14 @@ router.get("/podium/:name", (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
+// delete all users
+router.delete("/podium", (req, res) => {
+  usuarioSchema
+    .remove()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
 // delete a user
 router.delete("/podium/:id", (req, res) => {
   const { id } = req.params;
